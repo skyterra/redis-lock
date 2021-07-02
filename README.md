@@ -23,6 +23,7 @@ func main() {
 	id, err := lock.AcquireLock(conn, lockName, 100, 10*1000)
 	// TODO your operation.
 
+
 	lock.ReleaseLock(conn, lockName, id)
 }
 ```

@@ -1,3 +1,4 @@
+![example workflow](https://github.com/skyterra/redis-lock/actions/workflows/go.yml/badge.svg)
 # redis-lock
 使用redis实现分布式锁
 

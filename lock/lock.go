@@ -5,17 +5,16 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/google/uuid"
-
 	"github.com/gomodule/redigo/redis"
+	"github.com/google/uuid"
 )
 
 const (
-	DefaultAcquireTimeout int64 = 100       // 获取锁的timeout时间，默认100ms
-	DefaultLockTimeout    int64 = 10 * 1000 // 锁过期时间，默认10s
+	DefaultAcquireTimeout int64         = 100       // 获取锁的timeout时间，默认100ms
+	DefaultLockTimeout    int64         = 10 * 1000 // 锁过期时间，默认10s
+	RetryInterval         time.Duration = 1         // 获取锁失败后，重试间隔，默认1ms
 
-	RetryInterval time.Duration = 1        // 获取锁失败后，重试间隔，默认1ms
-	LockPrefix                  = "stlock" // 锁前缀
+	LockPrefix = "stlock" // 锁前缀
 )
 
 // 连接redis，返回连接池
